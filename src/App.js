@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import React from "react";
 import pic_bulboff from './pic_bulboff.gif';
 import pic_bulbon from './pic_bulbon.gif';
@@ -27,30 +27,34 @@ function App({ text, maxlength }) {
 }
 function Check() {
 
-  // const [lights, setlight] = useState(0);
+  const [num, setNumber] = useState(0);
+  let imgid = document.getElementById('imgid');
 
-  // function light() {
-  //   setlight(prverious =>
-  //     prverious ? 0 : 1
-  //   )
-  // }
+
+  function light() {
+    setNumber((prvious) => {
+      // if (prvious > 1) {
+      //   imgid.src = "pic_bulbon"
+      // }
+    });
+  }
+  // useEffect(() => {
+  //   imgid.src = "pic_bulbon"
+  // }, [])
 
   return (
-    <h1> checl</h1>
+    <>
+      <h1 >Second Component</h1>
+      <br />
+      <img src={pic_bulboff} id="imgid" alt="" onClick={light} />
+      <br />
+      <h2>{num}</h2>
+      {/* <button type="button" onClick={light}>Increment</button> */}
+      <br />
+      {/* <button type="button" onClick={light(0)}> OFF</button> */}
+
+    </>
   )
-
-  // return (
-  //   <br>
-  //     <h1 >Second Component</h1>
-  //     <br />
-  //     <img src={pic_bulboff} id={"imgid"} alt="" />
-  //     <br />
-  //     <button type={"button"} onClick={light(1)}>ON</button>
-  //     <br />
-  //     <button type={"button"} onClick={light(0)}> OFF</button>
-
-  //   </br>
-  // )
 }
 
 // function Room() {
@@ -69,20 +73,21 @@ function Check() {
 //   )
 // }
 
-function Number() {
+// function Number() {
 
-  const [number, setnumber] = useState(0);
+//   const [number, setnumber] = useState(0);
 
-  return (
-    <>
-      <br />
-      <h1>Your Number Is {number}</h1>
-      <br />
-      <button onClick={() => setnumber(number + 1)}>CLick</button>
-    </>
-  )
-}
+//   return (
+//     <>
+//       <br />
+//       <h1>Your Number Is {number}</h1>
+//       <br />
+//       <button onClick={() => setnumber(number + 1)}>CLick</button>
+//     </>
+//   )
+// }
+
 
 export {
-  App, Check, Number
-};
+  App, Check
+}
